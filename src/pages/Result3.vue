@@ -30,7 +30,7 @@
 .now_content{
     width:320px;
     height:502px;
-    background:url('../assets/images/result1.png') no-repeat center;
+    background:url('../assets/images/result3.png') no-repeat center;
     background-size: cover;
     display: flex;
     flex-direction: column;

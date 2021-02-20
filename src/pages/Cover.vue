@@ -70,10 +70,11 @@
                 }
             )
             .then(res => {
-                if(res.flag){
-                    localStorage.setItem('wbnickname',res.data.screenName);
-                    localStorage.setItem('wbuid',res.data.uid);
-                    localStorage.setItem('wbavatar',res.data.url);
+                console.log(res,111111)
+                if(res.data.flag){
+                    localStorage.setItem('wbnickname',res.data.data.screenName);
+                    localStorage.setItem('wbuid',res.data.data.uid);
+                    localStorage.setItem('wbavatar',res.data.data.url);
                 }
             })
 

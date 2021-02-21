@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {post, fetch, patch, put} from '@/http/http.js'
-axios.defaults.baseURL = "http://sss.hemajia.net/"
+axios.defaults.baseURL = "https://jgltest.hemajia.net"
 
 export default {
     install(Vue, options) {

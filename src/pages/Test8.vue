@@ -2,9 +2,9 @@
     <div   class='all_bg' >
         <div  class='test_middle' >
             <div  class='test_option' ></div>
-            <div  class='question_A' @click="toAfterQuestion(1)"></div>
+            <div  class='question_A' @click="toAfterQuestion(3)"></div>
             <div  class='question_B' @click="toAfterQuestion(2)"></div>
-            <div  class='question_C' @click="toAfterQuestion(3)"></div>
+            <div  class='question_C' @click="toAfterQuestion(1)"></div>
             <div  class='test_icon_one' ></div>
             <div  class='test_icon_two' ></div>
             <div  class='test_icon_three' ></div>
@@ -34,8 +34,24 @@
                 this.val = value
             },
             toAfterQuestion(e) {
-                localStorage.setItem('value', e + this.val)
-
+                /* localStorage.setItem('value', e + this.val) */
+                if (e + this.val >= 8 && e + this.val <= 10) {
+                    this.$router.push({
+                        name: 'Result1'
+                    });
+                } else if (e + this.val > 10 && e + this.val <= 17) {
+                    this.$router.push({
+                        name: 'Result2'
+                    });
+                } else if (e + this.val > 17 && e + this.val < 24) {
+                    this.$router.push({
+                        name: 'Result3'
+                    });
+                } else if (e + this.val == 24) {
+                    this.$router.push({
+                        name: 'Result4'
+                    });
+                }
             }
             
         },

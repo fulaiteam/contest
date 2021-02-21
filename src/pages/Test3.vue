@@ -2,9 +2,9 @@
     <div   class='all_bg' >
         <div  class='test_middle' >
             <div  class='test_option' ></div>
-            <div  class='question_A' @click="toAfterQuestion(1)"></div>
+            <div  class='question_A' @click="toAfterQuestion(3)"></div>
             <div  class='question_B' @click="toAfterQuestion(2)"></div>
-            <div  class='question_C' @click="toAfterQuestion(3)"></div>
+            <div  class='question_C' @click="toAfterQuestion(1)"></div>
             <div  class='test_inbetweening' ></div>
             <div  class='test_icon_one' ></div>
             <div  class='test_icon_two' ></div>

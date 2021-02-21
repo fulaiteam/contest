@@ -16,7 +16,9 @@
             }
         },
         created(){
-            this.getCode()
+            localStorage.setItem('wbnickname','111');
+            localStorage.setItem('wbavatar','222');
+            //this.getCode()
         },
         methods:{
             getCode () { // 非静默授权，第一次有弹框

@@ -4,6 +4,9 @@
             <div  class='avatar_area' >
 
             </div>
+            <div   class='nickname_area' >
+                @ 米多读豆豆多沕沕沕沕沕沕沕沕沕米米米米米米覅为全家福
+            </div>
         </div>
     </div>
 </template>
@@ -40,5 +43,13 @@
     height:66px;
     background:url('../assets/images/avatar.png') no-repeat center;
     background-size: cover;
+}
+.nickname_area{
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    overflow-x:hidden ;
+    margin-top:5px;
+    font-weight: bold;
 }
 </style>

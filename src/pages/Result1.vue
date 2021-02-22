@@ -9,13 +9,13 @@
                     @ {{this.nickname}}
                 </div>
                 <div  class='bottom_btnarea' >
-                <img src="https://duiduipeng.oss-cn-beijing.aliyuncs.com/save_btn.png"   class='btn_bg'  >
-                <img src="https://duiduipeng.oss-cn-beijing.aliyuncs.com/share_btn.png"   class='btn_bg'  >
+                <img src="https://duiduipeng.oss-cn-beijing.aliyuncs.com/save_btn.png"   class='btn_bg'  @click="saveImage">
+                <img src="https://duiduipeng.oss-cn-beijing.aliyuncs.com/share_btn.png"   class='btn_bg'  @click='share'    >
                 </div>
             </div>
         </div> 
 
-        <img :src="dataURL" alt="" v-show="!firstFlag">
+        <img :src="dataURL" alt="" v-show="!firstFlag" class="image">
     </div>
        
 </template>
@@ -36,11 +36,19 @@
           this.avatar =   localStorage.getItem('wbavatar');
         },
         mounted(){
-            html2canvas(document.querySelector('.all_bg')).then(canvas => {
-                let imgUrl = canvas.toDataURL('image/png');
-                this.dataURL = imgUrl;
-                this.firstFlag = false;
-            })
+            
+        },
+        methods: {
+            saveImage() {
+                html2canvas(document.querySelector('.all_bg')).then(canvas => {
+                    let imgUrl = canvas.toDataURL('image/png');
+                    this.dataURL = imgUrl;
+                    this.firstFlag = false;
+                })
+            },
+                            share(){
+      window.open('http://service.weibo.com/share/share.php?url=https%3A%2F%2Fmjkgj.benq.com.cn%2Fwb.html&appkey=1467585635&language=zh_cn&title=%E5%BF%AB%E6%9D%A5%E6%B5%8B%E6%B5%8B%E4%BD%A0%E7%9A%84%E5%BC%80%E5%B7%A5%E5%80%BC&source=&sourceUrl=&ralateUid=&message=&uids=&pic=https%3A%2F%2Fjgl.oss-cn-beijing.aliyuncs.com%2Fkgj.png&searchPic=true&content=')
+    }
         },
     }
 </script>
@@ -96,5 +104,9 @@
     display: block;
     height:40px;
     width:110px;
+}
+.image {
+    width:100%;
+    height:100vh;
 }
 </style>

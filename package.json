@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "ali-oss": "^4.13.2",
+    "animate.css": "^4.1.1",
     "axios": "^0.18.0",
     "element-ui": "^2.6.1",
     "file-saver": "^2.0.1",

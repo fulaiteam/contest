@@ -4,6 +4,7 @@
             <div  class='cover_btn'   @click='startTest'    >
 
             </div>
+             <img src="http://timg.sjs.sinajs.cn/t4/appstyle/widget/images/loginButton/loginButton_24.png"    @click='getCode'  class='weibo_login'  ></img>
         </div>
     </div>
 </template>
@@ -16,9 +17,8 @@
             }
         },
         created(){
-            localStorage.setItem('wbnickname','111');
-            localStorage.setItem('wbavatar','222');
-            //this.getCode()
+           this.code = localStorage.getItem('nowCode1');
+           this.wbuid = localStorage.getItem('wbuid')
         },
         methods:{
             getCode () { // 非静默授权，第一次有弹框
@@ -28,7 +28,7 @@
                 this.code = this.getUrlCode().code // 截取code;
                 var vm = this;
                 if (this.code == null || this.code === '') { // 如果没有code，则去请求
-                    window.location.href = `https://api.weibo.com/oauth2/authorize?client_id=1795438477&response_type=code&redirect_uri=https://jgltest.hemajia.net/dist/`
+                    window.location.href = `https://api.weibo.com/oauth2/authorize?client_id=1467585635&response_type=code&redirect_uri=https://mjkgj.benq.com.cn`
                 } else {
                     // 你自己的业务逻辑
                     localStorage.setItem('nowCode1',vm.code)
@@ -61,6 +61,14 @@
 
             },
         startTest() {
+            var vm = this;
+            if(!this.code){
+                this.$message({
+                    message: '请先使用微博授权登录',
+                    type: 'warning'
+                })
+                return
+            }
             this.$axios.get('/wbo/user/oauth', 
             {
                     headers: {
@@ -77,8 +85,14 @@
                     localStorage.setItem('wbnickname',res.data.data.screenName);
                     localStorage.setItem('wbuid',res.data.data.uid);
                     localStorage.setItem('wbavatar',res.data.data.url);
+                    vm.$router.push('/test1')
+                }else{
+                    vm.$router.push('/test1')
                 }
             })
+
+            
+
 
 
 
@@ -116,6 +130,9 @@
     height:88px;
     background:url('../assets/images/cover_btn.png') no-repeat center;
     background-size: cover;
-    margin-bottom:50px;
+    margin-bottom:10px;
+}
+.weibo_login{
+    margin-bottom:40px;
 }
 </style>

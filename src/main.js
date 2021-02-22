@@ -24,7 +24,11 @@ Vue.config.productionTip = false
 Vue.use(ElementUI);
 Vue.use(CommonJs);
 Vue.use(Excel);
-Vue.use(Print) // 注册
+Vue.use(Print); // 注册
+
+// 第三方动画
+import animated from 'animate.css';
+Vue.use(animated);
 
 
 

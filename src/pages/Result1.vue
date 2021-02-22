@@ -9,13 +9,13 @@
                     @ {{this.nickname}}
                 </div>
                 <div  class='bottom_btnarea' >
-                <img src="https://duiduipeng.oss-cn-beijing.aliyuncs.com/save_btn.png"   class='btn_bg'  >
+                <img src="https://duiduipeng.oss-cn-beijing.aliyuncs.com/save_btn.png"   class='btn_bg'  @click="saveImage">
                 <img src="https://duiduipeng.oss-cn-beijing.aliyuncs.com/share_btn.png"   class='btn_bg'  >
                 </div>
             </div>
         </div> 
 
-        <img :src="dataURL" alt="" v-show="!firstFlag">
+        <img :src="dataURL" alt="" v-show="!firstFlag" class="image">
     </div>
        
 </template>
@@ -36,11 +36,16 @@
           this.avatar =   localStorage.getItem('wbavatar');
         },
         mounted(){
-            html2canvas(document.querySelector('.all_bg')).then(canvas => {
-                let imgUrl = canvas.toDataURL('image/png');
-                this.dataURL = imgUrl;
-                this.firstFlag = false;
-            })
+            
+        },
+        methods: {
+            saveImage() {
+                html2canvas(document.querySelector('.all_bg')).then(canvas => {
+                    let imgUrl = canvas.toDataURL('image/png');
+                    this.dataURL = imgUrl;
+                    this.firstFlag = false;
+                })
+            }
         },
     }
 </script>
@@ -96,5 +101,9 @@
     display: block;
     height:40px;
     width:110px;
+}
+.image {
+    width:100%;
+    height:100vh;
 }
 </style>

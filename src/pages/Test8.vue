@@ -26,6 +26,7 @@
         },
         created() {
             this.saveValue()
+            this.wbuid = localStorage.getItem('wbuid')
             console.log(this.val)
         },
         methods: {
@@ -34,7 +35,8 @@
                 this.val = value
             },
             toAfterQuestion(e) {
-                /* localStorage.setItem('value', e + this.val) */
+                var score = e + this.val;
+                this.saveById(score)
                 if (e + this.val >= 8 && e + this.val <= 10) {
                     this.$router.push({
                         name: 'Result1'
@@ -52,6 +54,21 @@
                         name: 'Result4'
                     });
                 }
+            },
+            saveById(sco){
+                var jg1 = sco;
+                var vm = this;
+                this.$axios({
+                method: 'post',
+                url:'/wbo/user/insert',
+                data: {
+                    uid:this.wbuid,
+                    jg:jg1,
+                },
+            }).then((res)=>{
+                
+            });
+
             }
             
         },

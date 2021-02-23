@@ -3,7 +3,7 @@
         <div  class='all_bg'  v-show="firstFlag">
             <div  class='now_content' >
                 <div  class='avatar_area' >
-                    <image  class='avatar_bg'   :src="this.avatar" ></image>
+                    <img class='avatar_bg'   :src="this.avatar">
                 </div>
                 <div   class='nickname_area' >
                     @ {{this.nickname}}
@@ -83,6 +83,7 @@
 .avatar_bg{
       width:66px;
     height:66px;
+    border-radius:50%;
 }
 .nickname_area{
     width: 260px;

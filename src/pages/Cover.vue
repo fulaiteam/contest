@@ -1,11 +1,11 @@
 <template>
     <div   class='all_bg' >
-        <div  class='cover_middle' >
+        <div  class='cover_middle animate__animated animate__fadeInLeft' >
             <div  class='cover_btn'   @click='startTest'    >
 
             </div>
              <img src="http://timg.sjs.sinajs.cn/t4/appstyle/widget/images/loginButton/loginButton_24.png"    @click='getCode'  class='weibo_login'  ></img>
-        </div>
+                </div>
     </div>
 </template>
 

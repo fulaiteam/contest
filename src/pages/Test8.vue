@@ -1,18 +1,18 @@
 <template>
     <div   class='all_bg' >
         <div  class='test_middle' >
-            <div  class='test_option' ></div>
-            <div  class='question_A' @click="toAfterQuestion(3)"></div>
-            <div  class='question_B' @click="toAfterQuestion(2)"></div>
-            <div  class='question_C' @click="toAfterQuestion(1)"></div>
-            <div  class='test_icon_one' ></div>
-            <div  class='test_icon_two' ></div>
-            <div  class='test_icon_three' ></div>
-            <div  class='test_icon_four' ></div>
-            <div  class='test_icon_five' ></div>
-            <div  class='test_icon_six' ></div>
-            <div  class='test_icon_seven' ></div>
-            <div  class='test_font' ></div>
+            <div  class='test_option animate__animated animate__fadeIn' style="animation-delay:1.4s;" ></div>
+            <div  class='test_question question_A animate__animated animate__fadeIn' style="animation-delay:1.6s;" @click="flag && toAfterQuestion(12.5)"></div>
+            <div  class='test_question question_B animate__animated animate__fadeIn' style="animation-delay:1.6s;" @click="flag && toAfterQuestion(7)"></div>
+            <div  class='test_question question_C animate__animated animate__fadeIn' style="animation-delay:1.6s;" @click="flag && toAfterQuestion(3)"></div>
+            <div  class="test_icon_one animate__animated animate__fadeInRight" style="animation-delay:0.2s;"></div>
+            <div  class='test_icon_two animate__animated animate__fadeInRight' style="animation-delay:0.4s;"></div>
+            <div  class='test_icon_three animate__animated animate__fadeIn' style="animation-delay:0.6s;"></div>
+            <div  class='test_icon_four animate__animated animate__fadeInDown' style="animation-delay:0.8s;"></div>
+            <div  class='test_icon_five animate__animated animate__bounce' style="animation-delay:1s;"></div>
+            <div  class='test_icon_six animate__animated animate__bounce' style="animation-delay:1s;"></div>
+            <div  class='test_icon_seven animate__animated animate__bounce' style="animation-delay:1s;"></div>
+            <div  class='test_font animate__animated animate__fadeInDown' style="animation-delay:1.2s;"></div>
         </div>
     </div>
 </template>
@@ -21,35 +21,38 @@
     export default {
         data() {
             return {
-                val: ''
+                flag: false
             };
         },
         created() {
-            this.saveValue()
-            this.wbuid = localStorage.getItem('wbuid')
-            console.log(this.val)
+            let val1 = parseFloat(localStorage.getItem('value1'))
+            console.log(val1)
+        },
+         mounted() {
+            this.setTime()
         },
         methods: {
-            saveValue() {
-                let value = this.$route.params.value
-                this.val = value
+            setTime() {
+                setTimeout(()=>{ 
+                    this.flag = true
+                },2000); 
             },
             toAfterQuestion(e) {
-                var score = e + this.val;
-                this.saveById(score)
-                if (e + this.val >= 8 && e + this.val <= 10) {
+                let value = parseFloat(localStorage.getItem('value1')) + parseFloat(localStorage.getItem('value2')) + parseFloat(localStorage.getItem('value3')) + parseFloat(localStorage.getItem('value4')) + parseFloat(localStorage.getItem('value5')) + parseFloat(localStorage.getItem('value6')) + parseFloat(localStorage.getItem('value7')) + e
+                this.saveById(value)
+                if (value >= 1 && value <= 25) {
                     this.$router.push({
                         name: 'Result1'
                     });
-                } else if (e + this.val > 10 && e + this.val <= 17) {
+                } else if (value > 25 && value <= 50) {
                     this.$router.push({
                         name: 'Result2'
                     });
-                } else if (e + this.val > 17 && e + this.val < 24) {
+                } else if (value > 50 && value <= 75) {
                     this.$router.push({
                         name: 'Result3'
                     });
-                } else if (e + this.val == 24) {
+                } else if (value > 75 && value <= 100) {
                     this.$router.push({
                         name: 'Result4'
                     });

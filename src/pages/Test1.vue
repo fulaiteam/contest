@@ -1,32 +1,46 @@
 <template>
-    <div   class='all_bg' >
-        <div  class='test_middle' >
-            <div  class='test_option' ></div>
-            <div  class='test_question question_A' @click="toAfterQuestion(3)"></div>
-            <div  class='test_question question_B' @click="toAfterQuestion(2)"></div>
-            <div  class='test_question question_C' @click="toAfterQuestion(1)"></div>
-            <div  class='test_inbetweening' ></div>
-            <div  class="test_icon_one animate__animated animate__fadeInRight" style="animation-delay:1s;"></div>
-            <div  class='test_icon_two animate__animated animate__fadeInRight' style="animation-delay:2s;"></div>
-            <div  class='test_icon_three animate__animated animate__fadeIn' style="animation-delay:3s;"></div>
-            <div  class='test_icon_four animate__animated animate__fadeInDown' style="animation-delay:4s;"></div>
-            <div  class='test_icon_five animate__animated animate__bounce' style="animation-delay:5s;"></div>
-            <div  class='test_icon_six animate__animated animate__bounce' style="animation-delay:6s;"></div>
-            <div  class='test_icon_seven animate__animated animate__bounce' style="animation-delay:7s;"></div>
-            <div  class='test_font animate__animated animate__fadeInDown' style="animation-delay:8s;"></div>
+    <div   class='all_bg'>
+        <div  class='test_middle'>
+            <div  class='test_option animate__animated animate__fadeIn' style="animation-delay:1.4s;"></div>
+            <div  class='test_question question_A animate__animated animate__fadeIn' style="animation-delay:1.6s;" @click="flag && toAfterQuestion(12.5)"></div>
+            <div  class='test_question question_B animate__animated animate__fadeIn' style="animation-delay:1.6s;" @click="flag && toAfterQuestion(7)"></div>
+            <div  class='test_question question_C animate__animated animate__fadeIn' style="animation-delay:1.6s;" @click="flag && toAfterQuestion(3)"></div>
+            <div  class='test_inbetweening animate__animated animate__bounceIn' style="animation-delay:1.8s;"></div>
+            <div  class="test_icon_one animate__animated animate__fadeInRight" style="animation-delay:0.2s;"></div>
+            <div  class='test_icon_two animate__animated animate__fadeInRight' style="animation-delay:0.4s;"></div>
+            <div  class='test_icon_three animate__animated animate__fadeIn' style="animation-delay:0.6s;"></div>
+            <div  class='test_icon_four animate__animated animate__fadeInDown' style="animation-delay:0.8s;"></div>
+            <div  class='test_icon_five animate__animated animate__bounce' style="animation-delay:1s;"></div>
+            <div  class='test_icon_six animate__animated animate__bounce' style="animation-delay:1s;"></div>
+            <div  class='test_icon_seven animate__animated animate__bounce' style="animation-delay:1s;"></div>
+            <div  class='test_font animate__animated animate__fadeInDown' style="animation-delay:1.2s;"></div>
         </div>
     </div>
 </template>
 
 <script>
     export default {
+        data() {
+            return {
+                flag: false
+            }
+        },
+        mounted() {
+            this.setTime()
+        },
         methods: {
             toAfterQuestion(e) {
+                localStorage.setItem('value1', e)
                 this.$router.push({
-                    name: 'Test2',
-                    params: {'value': e}
+                    name: 'Test2'
                 });
+            },
+            setTime() {
+                setTimeout(()=>{ 
+                    this.flag = true
+                },2000); 
             }
+            
         },
     }
 </script>

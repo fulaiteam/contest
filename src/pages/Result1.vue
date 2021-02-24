@@ -77,7 +77,7 @@
     backgroundColor:null,
 }).then(canvas => {
 
-                    let imgUrl = canvas.toDataURL('image/png',3);
+                    let imgUrl = canvas.toDataURL('image/png',1.0);
                     this.dataURL = imgUrl;
                     
                     this.firstFlag = false;

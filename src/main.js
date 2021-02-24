@@ -74,15 +74,15 @@ new Vue({
 
 
 
-router.afterEach( ( to, from, next ) => {
-  console.log(111111)
-  setTimeout(()=>{
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?728ddd705740fde45b8bb2c033c8053e";
-      var s = document.getElementsByTagName("script")[0]; 
-      s.parentNode.insertBefore(hm, s);
-    })();
-  },0);
-} );
+// router.afterEach( ( to, from, next ) => {
+//   console.log(111111)
+//   setTimeout(()=>{
+//     var _hmt = _hmt || [];
+//     (function() {
+//       var hm = document.createElement("script");
+//       hm.src = "https://hm.baidu.com/hm.js?728ddd705740fde45b8bb2c033c8053e";
+//       var s = document.getElementsByTagName("script")[0]; 
+//       s.parentNode.insertBefore(hm, s);
+//     })();
+//   },0);
+// } );

@@ -3,7 +3,10 @@
         <div  class='all_bg'  v-show="firstFlag">
             <div  class='now_content' >
                 <div  class='avatar_area' >
-                    <img class='avatar_bg'   :src="this.avatar">
+                <img :src="this.aaaaaaa"  class='avatar_bg'   >
+                   
+                    
+
                 </div>
                 <div   class='nickname_area' >
                     @ {{this.nickname}}
@@ -29,6 +32,7 @@
             return{
                 dataURL:'',
                 firstFlag:true,
+                aaaaaaa:''
             }
         },
         created(){
@@ -36,11 +40,34 @@
           this.avatar =   localStorage.getItem('wbavatar');
         },
         mounted(){
-            
+           
+             this.ToBase64()
         },
         methods: {
+                        ToBase64(){
+                var originImg = localStorage.getItem('wbavatar');
+                this.$axios({
+                method: 'get',
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                url:'/wbo/util/getBase64',
+                params: {
+                   url:originImg
+                },
+            }).then((res)=>{
+               this.aaaaaaa = 'data:image/jpg;base64,'+res.data
+               console.log(this.aaaaaaa)
+ 
+
+            });
+
+            },
             saveImage() {
-                html2canvas(document.querySelector('.all_bg')).then(canvas => {
+             
+     html2canvas(document.querySelector('.all_bg'), { useCORS: true,
+    backgroundColor:null,
+}).then(canvas => {
                     let imgUrl = canvas.toDataURL('image/png');
                     this.dataURL = imgUrl;
                     this.firstFlag = false;
@@ -48,7 +75,8 @@
             },
                             share(){
       window.open('http://service.weibo.com/share/share.php?url=https%3A%2F%2Fmjkgj.benq.com.cn%2Fwb.html&appkey=1467585635&language=zh_cn&title=%E5%BF%AB%E6%9D%A5%E6%B5%8B%E6%B5%8B%E4%BD%A0%E7%9A%84%E5%BC%80%E5%B7%A5%E5%80%BC&source=&sourceUrl=&ralateUid=&message=&uids=&pic=https%3A%2F%2Fjgl.oss-cn-beijing.aliyuncs.com%2Fkgj.png&searchPic=true&content=')
-    }
+    },
+    
         },
     }
 </script>
@@ -81,9 +109,11 @@
     background-size: cover;
 }
 .avatar_bg{
+    background-repeat: no-repeat;
+    background-size: contain;
       width:66px;
     height:66px;
-    border-radius:50%;
+     border-radius:50%;
 }
 .nickname_area{
     width: 260px;

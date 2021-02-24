@@ -17,8 +17,8 @@
             }
         },
         created(){
-           this.code = localStorage.getItem('nowCode1');
-           this.wbuid = localStorage.getItem('wbuid')
+        //    this.code = localStorage.getItem('nowCode1');
+        //    this.wbuid = localStorage.getItem('wbuid')
         },
         methods:{
             getCode () { // 非静默授权，第一次有弹框
@@ -61,8 +61,9 @@
 
             },
         startTest() {
+            var  originCode = this.getUrlCode().code;
             var vm = this;
-            if(!this.code){
+            if(!originCode){
                 this.$message({
                     message: '请先使用微博授权登录',
                     type: 'warning'
@@ -75,7 +76,7 @@
                        "Content-Type": "application/x-www-form-urlencoded"
                     },
                     params: {
-                        code:this.code
+                        code:originCode
                     },
                 }
             )
@@ -87,7 +88,8 @@
                     localStorage.setItem('wbavatar',res.data.data.url);
                     vm.$router.push('/test1')
                 }else{
-                    vm.$router.push('/test1')
+                    console.log('授权失败')
+                    //vm.$router.push('/test1')
                 }
             })
 

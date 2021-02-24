@@ -25,11 +25,13 @@
             };
         },
         created() {
+             this.wbuid = localStorage.getItem('wbuid')
             let val1 = parseFloat(localStorage.getItem('value1'))
             console.log(val1)
         },
          mounted() {
             this.setTime()
+            // this.ToBase64()
         },
         methods: {
             setTime() {
@@ -70,6 +72,23 @@
                 },
             }).then((res)=>{
                 
+            });
+
+            },
+            ToBase64(){
+                var originImg = 'https://airport11.oss-cn-beijing.aliyuncs.com/006WfM8Gly8fj1y7bmdo3j30hs0hsgm1.jpg';
+                this.$axios({
+                method: 'get',
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                url:'/wbo/util/getBase64',
+                params: {
+                   url:originImg
+                },
+            }).then((res)=>{
+                localStorage.setItem('lastAvatar','data:image/jpg;base64,'+res.data);
+
             });
 
             }

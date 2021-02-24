@@ -11,9 +11,11 @@
                 <div   class='nickname_area' >
                     @ {{this.nickname}}
                 </div>
+                <div  class='top_btnarea' >
+                <img src="https://airport11.oss-cn-beijing.aliyuncs.com/share_btn.png"   class='btn_share'  >
+                </div>
                 <div  class='bottom_btnarea' >
-                <img src="https://duiduipeng.oss-cn-beijing.aliyuncs.com/save_btn.png"   class='btn_bg'  @click="saveImage">
-                <img src="https://duiduipeng.oss-cn-beijing.aliyuncs.com/share_btn.png"   class='btn_bg'  @click='share'    >
+                 <img src="https://airport11.oss-cn-beijing.aliyuncs.com/save_btn.png"   class='btn_bg'  @click="saveImage">
                 </div>
             </div>
         </div> 
@@ -103,7 +105,7 @@
 }
 .now_content{
     width:350px;
-    height:550px;
+    height:569px;
     background:url('../assets/images/result1.png') no-repeat center;
     background-size: cover;
     display: flex;
@@ -133,13 +135,31 @@
     margin-top:5px;
     font-weight: bold;
 }
-.bottom_btnarea{
-    margin-top:435px;
-    width:290px;
-    height:45px;
-    display: flex;
-    justify-content: space-between;
+.top_btnarea{
+    position: absolute;
+    top:7px;
+    right:0;
+    width:100%;
+    height:40px;
+     display: flex;
+    justify-content: flex-end;
     align-items: center;
+}
+.bottom_btnarea{
+    position: absolute;
+    bottom:7px;
+    right:0;
+    width:100%;
+    height:40px;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn_share{
+margin-right:20px;
+    display: block;
+    height:20px;
+    width:101px;
 }
 .btn_bg{
     display: block;

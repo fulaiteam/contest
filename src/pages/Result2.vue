@@ -44,7 +44,7 @@
              this.ToBase64()
         },
         methods: {
-                        ToBase64(){
+            ToBase64(){
                 var originImg = localStorage.getItem('wbavatar');
                 this.$axios({
                 method: 'get',
@@ -92,8 +92,8 @@
     align-items: center;
 }
 .now_content{
-    width:320px;
-    height:502px;
+    width:350px;
+    height:550px;
     background:url('../assets/images/result2.png') no-repeat center;
     background-size: cover;
     display: flex;
@@ -124,8 +124,8 @@
     font-weight: bold;
 }
 .bottom_btnarea{
-    margin-top:390px;
-    width:265px;
+    margin-top:435px;
+    width:290px;
     height:45px;
     display: flex;
     justify-content: space-between;

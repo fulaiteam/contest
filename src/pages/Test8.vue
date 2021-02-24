@@ -1,18 +1,18 @@
 <template>
     <div   class='all_bg' >
         <div  class='test_middle' >
-            <div  class='test_option animate__animated animate__fadeIn' style="animation-delay:1.4s;" ></div>
-            <div  class='test_question question_A animate__animated animate__fadeIn' style="animation-delay:1.6s;" @click="flag && toAfterQuestion(12.5)"></div>
-            <div  class='test_question question_B animate__animated animate__fadeIn' style="animation-delay:1.6s;" @click="flag && toAfterQuestion(7)"></div>
-            <div  class='test_question question_C animate__animated animate__fadeIn' style="animation-delay:1.6s;" @click="flag && toAfterQuestion(3)"></div>
-            <div  class="test_icon_one animate__animated animate__fadeInRight" style="animation-delay:0.2s;"></div>
-            <div  class='test_icon_two animate__animated animate__fadeInRight' style="animation-delay:0.4s;"></div>
-            <div  class='test_icon_three animate__animated animate__fadeIn' style="animation-delay:0.6s;"></div>
-            <div  class='test_icon_four animate__animated animate__fadeInDown' style="animation-delay:0.8s;"></div>
-            <div  class='test_icon_five animate__animated animate__bounce' style="animation-delay:1s;"></div>
-            <div  class='test_icon_six animate__animated animate__bounce' style="animation-delay:1s;"></div>
-            <div  class='test_icon_seven animate__animated animate__bounce' style="animation-delay:1s;"></div>
-            <div  class='test_font animate__animated animate__fadeInDown' style="animation-delay:1.2s;"></div>
+            <div  class='test_option animate__animated animate__fadeIn' style="animation-delay:0.8s;"></div>
+            <div  class='test_question question_A animate__animated animate__fadeIn' style="animation-delay:0.9s;" @click="flag && toAfterQuestion(12.5)"></div>
+            <div  class='test_question question_B animate__animated animate__fadeIn' style="animation-delay:0.9s;" @click="flag && toAfterQuestion(7)"></div>
+            <div  class='test_question question_C animate__animated animate__fadeIn' style="animation-delay:0.9s;" @click="flag && toAfterQuestion(3)"></div>
+            <div  class="test_icon_one animate__animated animate__fadeInRight" style="animation-delay:0.1s;"></div>
+            <div  class='test_icon_two animate__animated animate__fadeInRight' style="animation-delay:0.2s;"></div>
+            <div  class='test_icon_three animate__animated animate__fadeIn' style="animation-delay:0.3s;"></div>
+            <div  class='test_icon_four animate__animated animate__fadeInDown' style="animation-delay:0.4s;"></div>
+            <div  class='test_icon_five animate__animated animate__bounce' style="animation-delay:0.5s;"></div>
+            <div  class='test_icon_six animate__animated animate__bounce' style="animation-delay:0.5s;"></div>
+            <div  class='test_icon_seven animate__animated animate__bounce' style="animation-delay:0.5s;"></div>
+            <div  class='test_font animate__animated animate__fadeInDown' style="animation-delay:0.6s;"></div>
         </div>
     </div>
 </template>
@@ -37,7 +37,7 @@
             setTime() {
                 setTimeout(()=>{ 
                     this.flag = true
-                },2000); 
+                },1000); 
             },
             toAfterQuestion(e) {
                 let value = parseFloat(localStorage.getItem('value1')) + parseFloat(localStorage.getItem('value2')) + parseFloat(localStorage.getItem('value3')) + parseFloat(localStorage.getItem('value4')) + parseFloat(localStorage.getItem('value5')) + parseFloat(localStorage.getItem('value6')) + parseFloat(localStorage.getItem('value7')) + e

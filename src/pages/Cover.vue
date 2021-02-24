@@ -1,6 +1,6 @@
 <template>
     <div   class='all_bg' >
-        <div  class='cover_middle animate__animated animate__fadeInLeft' >
+        <div  class="cover_middle" :class="{'animate__animated':animate,'animate__fadeInLeft':animate}" >
             <div  class='cover_btn'   @click='startTest'    >
 
             </div>
@@ -13,12 +13,18 @@
     export default {
         data(){
             return{
-
+                animate: true
             }
         },
         created(){
         //    this.code = localStorage.getItem('nowCode1');
         //    this.wbuid = localStorage.getItem('wbuid')
+            if(this.getUrlCode().code){
+                this.animate = false
+                console.log('succeed')
+            } 
+        },
+        mounted() {
         },
         methods:{
             getCode () { // 非静默授权，第一次有弹框
@@ -31,7 +37,7 @@
                     window.location.href = `https://api.weibo.com/oauth2/authorize?client_id=1467585635&response_type=code&redirect_uri=https://mjkgj.benq.com.cn`
                 } else {
                     // 你自己的业务逻辑
-                    localStorage.setItem('nowCode1',vm.code)
+                    localStorage.setItem('nowCode1',vm.code)                 
                 }
             },
             getUrlCode() {

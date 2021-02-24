@@ -25,6 +25,7 @@
 
 <script>
     // 引入html2canvas
+
     import html2canvas from 'html2canvas';
 
     export default {
@@ -40,7 +41,8 @@
           this.avatar =   localStorage.getItem('wbavatar');
         },
         mounted(){
-           
+          var mmmm =  this.getDPR();
+          console.log(mmmm,333)
              this.ToBase64()
         },
         methods: {
@@ -63,13 +65,21 @@
             });
 
             },
+             getDPR(){
+        if (window.devicePixelRatio && window.devicePixelRatio > 1) {
+            return window.devicePixelRatio;
+        }
+        return 1;
+    },
             saveImage() {
              
      html2canvas(document.querySelector('.all_bg'), { useCORS: true,
     backgroundColor:null,
 }).then(canvas => {
-                    let imgUrl = canvas.toDataURL('image/png');
+
+                    let imgUrl = canvas.toDataURL('image/png',3);
                     this.dataURL = imgUrl;
+                    
                     this.firstFlag = false;
                 })
             },
